@@ -1,20 +1,20 @@
-overall sold 
+--overall sold 
 select prod_name,sum(no_of_product)as total_sold from sales where prod_name!="" group by prod_name order by total_sold desc;
 
-top 5 sold
+--top 5 sold
 select prod_name,sum(no_of_product)as total_sold from sales where prod_name!="" group by prod_name order by total_sold desc limit5;
 
-most sold
+--most sold
 select prod_name,sum(no_of_product)as total_sold from sales where prod_name!="" group by prod_name order by total_sold desc limit1;
 
-daily sales volume
+--daily sales volume
 select date,sum(no_of_product)as total_prod_sold from sales where prod_name !=""group by date order by date;
 
-product-wise revenue
+--product-wise revenue
 select prod_name,sum(price) as total_revenue from sales where prod_name !="" group by prod_name order by total_revenue desc;
 
 
-compare import quantity vs sold quantity
+--compare import quantity vs sold quantity
 SELECT i.imp_item, 
        i.stock_level AS imported_qty,
        COALESCE(SUM(s.no_of_product), 0) AS sold_qty,
